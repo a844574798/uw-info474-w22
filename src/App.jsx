@@ -153,7 +153,8 @@ function App() {
         The variables I'm focusing on for my dataset is the predicted winning probability and the forecast date as the winning probabilities were predicted using a well-developed model.
         Comparing to the voteshare variable, the winning probability variable is easier for us to observe even a very slight change happened to the campaign.
         Moreover, I put the line in red to represent Blackburn(R) and the other line in blue to represent Bredesen(D) because these were the theme color of their
-        corresponding parties. In terms of scale, the x-axis is time from August to November. At first, I tried to put every forecast dates as tickles. 
+        corresponding parties. Also, I made the legend of Blackburn bold to reflect that she was the ultimate winner, I also put more weight on the red line to emphasize that.
+        In terms of scale, the x-axis is time from August to November. At first, I tried to put every forecast dates as tickles. 
         However, that proved to be overcrowded, and thus I instead used the name of 4 months as the domains. On the other hand, The y-axis is the winning probability (0 to 1.0).
         In terms of legend, I labeled the lines with the candidates' names and their corresponding parties. In this way people with minimal background knowledge can 
         understand what the visualization is about.
