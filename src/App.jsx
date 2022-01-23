@@ -135,7 +135,8 @@ function App() {
         Election in the State of Tennessee</a>. The predicted data comes from 538, and 538 used their <a href = "https://fivethirtyeight.com/methodology/how-fivethirtyeights-house-and-senate-models-work/" target="_blank">
           deluxe model</a> to predict the winning probability of the candidates. 
           I chose the data predicted by the deluxe model because the model takes polls, non-polling factors, and expert forecasts into account.
-          Since this model considers more situations and aspects, I believe it is more likely to give us an unbiased and accurate prediction.
+          Since this model considers more situations and aspects, I believe it is more likely to give us an unbiased and accurate prediction. In terms of accuracy, 
+          Marsha Blackburn ended up winning the election. Based on the visualization, the model predicted it accurately.
       </p>
       <p>
         Background Story: Tennessee is a state that Former President Donald Trump by about 27 percentage points in 2016. 
@@ -153,11 +154,10 @@ function App() {
         The variables I'm focusing on for my dataset is the predicted winning probability and the forecast date as the winning probabilities were predicted using a well-developed model.
         Comparing to the voteshare variable, the winning probability variable is easier for us to observe even a very slight change happened to the campaign.
         Moreover, I put the line in red to represent Blackburn(R) and the other line in blue to represent Bredesen(D) because these were the theme color of their
-        corresponding parties. Also, I made the legend of Blackburn bold to reflect that she was the ultimate winner, I also put more weight on the red line to emphasize that.
-        In terms of scale, the x-axis is time from August to November. At first, I tried to put every forecast dates as tickles. 
+        corresponding parties. In terms of scale, the x-axis is time from August to November. At first, I tried to put every forecast dates as tickles. 
         However, that proved to be overcrowded, and thus I instead used the name of 4 months as the domains. On the other hand, The y-axis is the winning probability (0 to 1.0).
         In terms of legend, I labeled the lines with the candidates' names and their corresponding parties. In this way people with minimal background knowledge can 
-        understand what the visualization is about.
+        understand what the visualization is about. Also, I made the legend of Blackburn bold to reflect that she was the ultimate winner, I also put more weight on the red line to emphasize that.
       </p>
 
       <p>
@@ -176,6 +176,10 @@ function App() {
         Later in early October, Bredesen's winning probability took another dip and kept crashing until the election day. Based on the trends and patterns noticed,
         I can say that the nomination of Brett Kavanaugh as Supreme Court Justice do play a role in hindering Bredesen's 
         chance of being elected.
+      </p>
+
+      <p>
+        Github Repository Link: <a href="https://github.com/a844574798/uw-info474-w22.git" target="_blank">https://github.com/a844574798/uw-info474-w22.git</a>
       </p>
     </div>
   );
