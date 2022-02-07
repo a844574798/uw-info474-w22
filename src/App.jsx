@@ -131,6 +131,12 @@ function App() {
     .domain([minVoteShareR, maxVoteShareR])
     .range([voteShareMargin, voteShareChartWidth - voteShareMargin - voteShareMargin]);
 
+  var minVoteShareRL = d3.min(voteshareBlackburnL);
+  var maxVoteShareRL = d3.max(voteshareBlackburnL);
+  const voteShareScaleRL = scaleLinear()
+    .domain([minVoteShareRL, maxVoteShareRL])
+    .range([voteShareMargin, voteShareChartWidth - voteShareMargin - voteShareMargin]);
+
   const _scaleVoteShare = scaleLinear()
     .domain([40, 55])
     .range([chartSize - margin, margin]);
@@ -661,6 +667,49 @@ function App() {
             );
           })}
         </svg>
+
+        <svg
+          width={chartSize}
+          height={chartSize}
+          style={{ border: "1px solid black" }}
+        >
+          <AxisLeft strokeWidth={0} left={margin} scale={_scaleY} />
+          <AxisBottom
+            strokeWidth={0}
+            top={chartSize - margin}
+            left={20}
+            scale={voteShareScaleRL}
+            numTicks={10}
+          />
+          <text x="50" y="50" fontSize={15}>
+            Correlation of voteshare and winning probability of Blackburn
+          </text>
+          <text x="-390" y="15" transform="rotate(-90)" fontSize={15}>
+            Senate Candidate Winning Probability Forecast
+          </text>
+          <text x="-390" y="30" transform="rotate(-90)" fontSize={15}>
+            from 08/01/2018-11/06/2018
+          </text>
+          <text x="100" y="475" fontSize={15}>
+            Senate Candidate Predicted Vote Share
+          </text>
+          <text x="100" y="490" fontSize={15}>
+            from 08/01/2018-11/06/2018
+          </text>
+          {voteshareBlackburnL.map((voteshare, i) => {
+            var winProb = winprobBlackburnL[i];
+            return (
+              <circle
+                key={i}
+                cx={voteShareScaleRL(voteshare)}
+                cy={_scaleY(winProb)}
+                r={5}
+                style={{ stroke: "rgba(50,50,50)", fill: "none" }}
+              />
+            );
+
+          })}
+        </svg>
       </div>
       <p>This is a set of visualizations of the predicted <a href="https://en.wikipedia.org/wiki/2018_United_States_Senate_election_in_Tennessee" target="_blank">2018 Senate
         Election in the State of Tennessee</a>. The predicted data comes from 538, and 538 used their <a href="https://fivethirtyeight.com/methodology/how-fivethirtyeights-house-and-senate-models-work/" target="_blank">
@@ -681,25 +730,39 @@ function App() {
       </p>
 
       <p>
-        
+          <b>For the first question</b>, I plotted the line plots of voteshare vs time and win probability vs time for both the deluxe and the lite model.
+          I also plotted a barcode plot, a strip plot, and a histogram for the predicted voteshare. I also plotted a histogram for the predicted win probability.
+          I believe seeing the trends over time and the distributions of the voteshare and winning probability data can give me the answer to my first question.
+          Based on the visualzations of the deluxe model, we can see that most of Bredesen's winning probabilities were at 30 percent or lower, and
+          his winning probability never went higher than Marsha Blackburn. Since the deluxe model considers many aspects in addition to polling, it is not suprising to
+          see these results, as TN is one of the most Republican state in the country and our society was extremely polarized at that time. On the other hand, the
+          visualzations of the predicted vote share shows that Bredesen was higher than 45 percent for most of the campaign period, this means that his margin between
+          Blackburn stayed at around 10 percentage points during most parts of the campaign. There are also cases where Bredesen's predicted vote share was at 47 percent
+          or higher, this indicates a race within 6 percentage points. In terms of the lite model, we can even see Bredesen took the lead for a signifanct period of time in both
+          winning probability and voteshare, this indicates that the polling at that time was very favorable for Bredesen. Overall, based on the visualzations shown(especially
+          the visualzations for the predicted voteshares), and given that former President Trump won the state by over 20 percentage points,
+          I would say we can truly consider the race to be competitive. <b>For the second question</b>, I plotted the visualizations of voteshare vs winning probability for both
+          the deluxe and the lite model. I saw that all of the plots showed strong positive correlations between the two factors. The higher the predicted voteshare, 
+          the higher the predited winning probability. However, the correlation for Bredesen in the deluxe model was not as strong as the other plots, a possible cause could be that the 
+          deluxe model also predicted the winning probability with non-polling factors. Overal, I would say the relationship between the winning proabability and the voteshare are correlated strongly
+          and positively.
       </p>
 
       <p>
-        As we can see on the visualization, the difference of winning probabilities between Bredesen and Blackburn widened
+        <b>For the third question</b>, the difference of winning probabilities and voteshares between Bredesen and Blackburn widened
         in mid-August and in early-October. In late July, Christine Blasey Ford accused Justice Kavanaugh of sexually assulting her, and
         this incident started to get public attention in mid-August, and that was the first dip in Bredesen's winning chance. Also in early August,
         Marsha Blackburn started to <a href="https://www.tennessean.com/story/news/politics/tn-elections/2018/08/07/tennessee-senate-race-marsha-blackburn-trumpets-donald-trump-endorsement-new-ad-phil-bredesen/923030002/">
-          highlight Donald Trump's endorsement in TV ads</a>. Later in late-August and
-        early-September, the Senate Judiciary Committee held public hearings and trials which the public believed that the Democrats performed
-        poorly and therefore energized the Republican voters, and we could see on the plot that Bredesen's winning probability didn't recover
-        during that time period. In early October, Bredesen announced his support to Justice Kavanaugh, and this action alienated some Democratic voters
-        and his support started to continuously decline as showned in multiple polls. On the visualization, we can see that there were noticable
-        changes in winning probability on the time periods mentioned in the previous part of this paragraph. In mid-August, there was
-        a huge dip in Bredesen's winning probability, and his winning probability was hovering around 30% and bounced back to 40%
-        in late September. The event that cause this bounce back has not yet been identified, and it would be interesting to find it out.
-        Later in early October, Bredesen's winning probability took another dip and kept crashing until the election day. Based on the trends and patterns noticed,
-        I can say that the nomination of Brett Kavanaugh as Supreme Court Justice do play a role in hindering Bredesen's
-        chance of being elected.
+          highlight Donald Trump's endorsement in TV ads</a>. In early-October, Bredesen announced his support to Justice Kavanaugh, and this action alienated many Democratic voters. 
+          Based on what I saw on the visualizations of winning probability over time and voteshare over time, there were significant changes in trend during these time periods.
+          For example, the deluxe model showed one dip in mid-August and one dip in early-October for Bredesen. For the lite model, there weren't significant changes in mid-August, the race was projected to be
+          in a dead heat. However, Bredesen's predictions crashed in early-october. Based on what I saw on the visualizations, Bredesen's support on Kavanaugh took a big effect in affecting
+          his chance of winning. Thus, I would say the nomination of Brett Kavanaugh had an effect on Bredesen's chance of winning, and that effect was severe and negative. <b>For the fourth question</b>, we can see from the trend visualizations that both Bredesen's winning probability and voteshare never led Blackburn over the campaign season. On the other hand, Bredesen took a slight lead for about a month
+          in the lite model. Both model captured the crash of Bredesen's campaign, and predicted the correct winner. Thus, I would say the type of model didn't affect the accuracy in this case.
+          However, opinion polling can be biased and it has margin of error. Even though Bredesen is leading in the polls, other factors such as polarization and political culture could still push
+          voters who crossed over their supports to Bredesen ended up voting for Blackburn. Thus, I would trust the deluxe model more, as it takes more non-polling factors into
+          account and is more possible to give out an unbiased prediction.
+        
       </p>
 
       <p>
