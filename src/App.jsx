@@ -628,6 +628,60 @@ function App() {
       <p>
         Github Repository Link: <a href="https://github.com/a844574798/uw-info474-w22.git" target="_blank">https://github.com/a844574798/uw-info474-w22.git</a>
       </p>
+
+      <div>
+        <h2>Background and Analysis:</h2>
+        <p>
+          For this project, I did a visualization board of the 2018 Senate predictions in Indiana and West Virginia. The reason why I chose
+          this topic is that the 2018 election year is a very interesting one to investigate. During that year, the Democrats had a huge momentum
+          and was expected to make huge gains in the U.S. Congress. However, the Democrats ended up gaining seats in the House of Representatives but lost
+          multiple seats in the Senate. Most of the seats the Democrats lost were at the traditionally Repubican states such as Missouri, Indiana, and North Dakota.
+          However, Joe Manchin, a Democratic senator from the State of West Virginia (the most Republican state in the country), held on to his seat.
+        </p>
+
+        <p>
+          It was widely believed by the general public and political pundits that it was Democrats' mishandling of Justice Kavanaugh's appointment
+          trial that caused this loss in the senate. Kavanaugh's trial made Republicans in red states turned out in drove.
+          Thus, this project aims to give the audience an understanding of the impact of that issue through
+          an interactive dashboard. For comparison, I picked Democratic Senator Joe Donnelly from Indiana and Democratic Senator Joe Manchin from West Virgina.
+          Both states have similar demographics and they were traditionally conservative and Republican. Joe Donnelly voted against Kavanaugh's appointment and lost re-election, 
+          whereas Joe Manchin voted for Kavanaugh's appointment and won his re-election.
+        </p>
+
+        <p>
+          In addition to observing the Kavanaugh's effect, I also wanted to know how different the 538 models were in terms of
+          predicting the election progress and outcome. Thus, I also included two charts for users to investigate the differences between each of the 538 models
+          and see their differences.
+        </p>
+
+        <p>
+          The Deluxe model takes the mose number of criterias into account, including polls, non-polling factors, and expert ratings into account.
+          The Classic model is similar to the Deluxe model except that it doesn't take experts' opinions into account.
+          The Lite model makes predictions solely based on polling data.
+        </p>
+
+        <p>
+          In terms of the election results, Manchin only won the election
+          by <a href="https://en.wikipedia.org/wiki/2018_United_States_Senate_election_in_West_Virginia" target="_blank">3.3 percent</a>. On the other hand, 
+          Joe Donnelly lost his re-election bid by <a href="https://en.wikipedia.org/wiki/2018_United_States_Senate_election_in_Indiana" target="_blank">6 percent</a>.
+        </p>
+
+        <p>
+          Based on the line graphs, we can see that the election in West Virginia wasn't close at all throughout the election season. In fact,
+          the election didn't even get close. However, the result was way closer than the predictions. One possible explanation is the high red state Republican turnout due to
+          the Kavanaugh trial.
+        </p>
+
+        <p>
+          For Indiana, we can see that the election started to get narrower and narrower after September (the month where the trial gets intense and Kavanaugh's sexual misconduct incident came out). However, Donnelly was always
+          the favorite to win. Thus, it is surprising to see that all of the models predicted wrong. Thus, the unpredicted high Republican turnout could possibly be the reason of it.
+        </p>
+
+        <p>
+          Feel free to check out the visualizations and explore and come up with your own analysis. Enjoy!
+        </p>
+      </div>
+
     </div>
   );
 }
